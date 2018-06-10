@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="login">Login</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <!-- <ul class="nav navbar-nav">
+        <li class="active"><a href="studenti">Students</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul> -->
+      <ul class="nav navbar-nav pull-right">
+          <!-- <li *ngIf="!isLoggedIn()"><a (click)="toggleLogIn()">LogIn</a></li> -->
+            <!-- <li  *ngIf="!isLoggedIn()" (click)="toggleLogIn()" routerLink="login"><a>LogIn</a></li> -->
+				<li *ngIf="isLoggedIn()" [routerLink]="['../main']"><a (click)="logout()">Logout</a></li>
+			</ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form class="form-signin" (ngSubmit)="login()">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" id="username" class="form-control" name="username" [(ngModel)]="user.username" placeholder="Username"
+          required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" [range]="[1, 5]" class="form-control" name="username" [(ngModel)]="user.password" placeholder="Password"
+          required>
+        <button class="btn btn-primary btn-block" (click) = "compareMedia()" type="submit">Sign in</button>
+      </form>
+      <div *ngIf=wrongUsernameOrPass class="alert alert-warning box-msg" role="alert">
+        Wrong username or password.
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

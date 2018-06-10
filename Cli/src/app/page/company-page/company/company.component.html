@@ -1,0 +1,8 @@
+<div>
+  <div>
+      <div *ngIf="isLogin()" >
+          <app-new-update-company [change]="change" (saveCompany)="save($event)"></app-new-update-company>
+      </div>
+  </div>  
+  <a [routerLink]="['/company-page']">Go back</a>
+</div>

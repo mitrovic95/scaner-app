@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="company-page">New copmany</a>
+        <a class="navbar-brand" href="main">Home</a>
+      </div>
+      <ul class="nav navbar-nav pull-right">
+       <li *ngIf="isLoggedIn()"><a (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  
+  <div class="container-fluid"> 
+   
+        <div class="col-md-3 col-xs-1 p-l-0 p-r-0 collapse in" id="sidebar">
+            <div class="list-group panel">
+                <a [routerLink]="['/user-page']" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Users</span></a>
+                <a [routerLink]="['/item-page']" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-bar-chart-o"></i> <span class="hidden-sm-down">Items</span></a>
+                <a [routerLink]="['/company-page']" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-star"></i> <span class="hidden-sm-down">Companies</span></a>
+            </div>
+        </div>
+        <main class="col-md-10 col-xs-14 p-l-2 p-t-2">
+  <form  class="form" *ngIf="company" >
+    <div class="form-group">
+      <label>Name</label>
+      <!-- {{ company | json }} -->
+      <input type="text" name="name" class="form-control" [(ngModel)]="company.name"/>
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" name="address" class="form-control" [(ngModel)]="company.address"/>
+    </div>
+    <div class="form-group">
+        <label>Valid Licence Till</label>
+        <input type="text" name="validLicenceTill" class="form-control" [(ngModel)]="company.validLicenceTill"/>
+    </div>
+    <div class="form-group">
+    </div>
+    <button id="save" type="submit" [disabled]=" "(click)="save(company)" class="btn btn-warning">Save</button>
+    <button id="reset"type="button" (click)="reset()" class="btn btn-primary">Reset</button>
+  </form> 
+  <br/>
+  <button id="goBack"[routerLink]="['/company-page']">Go back</button>
+  </main>
+</div>
+  
+  

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="main">DASH.</a>
+      </div>
+      <ul class="nav navbar-nav pull-right">
+        <li *ngIf="isLoggedIn()"><a (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <!-- <div class="row"></div> -->
+        <div class="col-md-3 col-xs-1 p-l-0 p-r-0 collapse in" id="sidebar">
+            <div class="list-group panel">
+                <a [routerLink]="['/user-page']" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Users</span></a>
+                <a [routerLink]="['/item-page']" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-bar-chart-o"></i> <span class="hidden-sm-down">Items</span></a>
+                <a [routerLink]="['/company-page']" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-star"></i> <span class="hidden-sm-down">Companies</span></a>
+            </div>
+        </div>
+        <main class="col-md-9 col-xs-11 p-l-2 p-t-2">
+            <a href="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-lg"></i></a>
+            <hr>
+            <div class="page-header">
+                <h1>Wellcome</h1>
+            </div>
+            <p class="lead">This is scanner app.</p>
+        </main>
+    <!-- </div> -->
+</div>
+  

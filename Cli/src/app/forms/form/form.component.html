@@ -1,0 +1,27 @@
+<form>
+<!-- <form  class="form" *ngIf="item" (ngSubmit)="send()" > -->
+  <h5 *ngIf="!izmena"> Nova vest</h5>
+  <div class="form-group">
+    <label>Naslov vesti</label>
+    <!-- <input type="text" name="naslov" class="form-control" [(ngModel)]="vest.naslov"/> -->
+  </div>
+  <div class="form-group">
+    <label>Opis</label>
+    <!-- <input type="text" name="sadrzaj" class="form-control" [(ngModel)]="vest.sadrzaj"/> -->
+  </div>
+  <div class="form-group">
+      <label>Sadrzaj</label>
+      <!-- <input type="text" name="tekst" class="form-control" [(ngModel)]="vest.tekst"/> -->
+  </div>
+  <div class="form-group">
+    <label *ngIf="!izmena">Kategorija</label>
+    <!-- <label *ngIf="izmena">Izaberite novu kategoriju (trenutna kategorija: {{vest.kategorija.name}})</label>
+    <select name="kategorija" class="form-control"  [(ngModel)]="vest.kategorija">
+       <option *ngFor="let kategorija of kategorije" [ngValue]="vest.kategorija">{{kategorija.name}}</option>   -->
+    <!-- </select>  -->
+  </div>
+  <button *ngIf="!izmena" type="submit" [disabled]="">Sacuvaj</button>
+  <button *ngIf="izmena" type="submit" [disabled]="">Izmeni</button>
+  <!-- <button type="button" (click)="reset()">Reset</button> -->
+</form> 
+

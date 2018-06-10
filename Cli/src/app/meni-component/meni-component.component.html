@@ -1,0 +1,57 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="main">DASH.</a>
+    </div>
+  </div>
+
+  <ul class="nav navbar-nav pull-right">
+  <li *ngIf="isLoggedIn()"><a (click)="logout()">Logout</a></li>
+</ul>
+</nav>
+
+
+<!-- <div class="container" *ngIf="page">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="button-group pull-right">
+        <button class="btn btn-sm btn-primary" [disabled]="currentPageNumber<1" (click)="changePage(-1)">
+          <span class="glyphicon glyphicon-backward"></span>
+        </button>
+        <button class="btn btn-sm btn-primary" [disabled]="currentPageNumber>=page.totalPages-1" (click)="changePage(1)">
+          <span class="glyphicon glyphicon-forward"></span>
+        </button>
+      </div>
+      <b>name</b> <input  type="text"  [(ngModel)]="nameItem"><button (click)="findByName(nameItem)">filter</button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>kategorija</th>
+            <th>price</th>
+            <th  *ngIf="isAdmin()" >action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let meniItem of page.content">
+            <td>{{meniItem.name}}</td>
+            <td>{{meniItem.kategorija.name}}</td>
+            <td>{{meniItem.price}}</td>
+            <td>
+              <button class="btn btn-danger" *ngIf="isAdmin()" (click)="delete(meniItem)">delete</button>
+              <button class="btn btn-warning" *ngIf="isAdmin()" (click)="edit(meniItem)">edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <app-dodaj-meni-item 
+      *ngIf="isAdmin()"
+      [kategorija]="kategorija"
+      [meniItem]="forEdit"
+      (addComponentEmitter)="addComponent($event)">
+      </app-dodaj-meni-item>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,55 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="user-page">Users</a>
+      <a class="navbar-brand" href="main">Home</a>
+    </div>
+    <ul class="nav navbar-nav pull-right">
+     <li *ngIf="isLoggedIn()"><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+ 
+      <div class="col-md-3 col-xs-1 p-l-0 p-r-0 collapse in" id="sidebar">
+          <div class="list-group panel">
+              <a [routerLink]="['/user-page']" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Users</span></a>
+              <a [routerLink]="['/item-page']" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-bar-chart-o"></i> <span class="hidden-sm-down">Items</span></a>
+              <a [routerLink]="['/company-page']" class="list-group-item collapsed" data-parent="#sidebar"><i class="fa fa-star"></i> <span class="hidden-sm-down">Companies</span></a>
+          </div>
+      </div>
+
+
+      <div class="search"> 
+          <div class="engine"> 
+              <input placeholder="searchByUsername" type="text"  [(ngModel)]="username"><button  class="btn btn-primary" (click)="findByUsername()" id="filter">filter</button><button  class="btn btn-primary" (click)="resetFilter()" id="resetFilter">reset filter</button>
+            </div> 
+          <button id="new"  class="btn icon-plus" (click)="save(user)" [routerLink]="['/new-user']"> +</button>
+        </div> 
+  <main class="col-md-10 col-xs-14 p-l-2 p-t-2">
+    <table >
+      <thead >
+        <th>Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Update user</th>
+        <th>Delete user</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{user.id}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.role}}</td>
+          <td><button [routerLink]="['/user',user.id]" (click)="save(user)" id="update">update user</button></td>
+          <td><button (click)="delete(user)" id="delete">delete user</button></td>
+        </tr>
+      </tbody>
+    </table>
+</main>
+</div>
