@@ -26,10 +26,11 @@ public class Category {
 
 	}
 
-	public Category(Long id, String name) {
+	public Category(Long id, String name, Set<CompanyCategory> companyCategory) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.companyCategory = companyCategory;
 	}
 
 	public Long getId() {
@@ -47,7 +48,7 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public Set<CompanyCategory> getCompanyCategory() {
 		return companyCategory;
 	}
@@ -58,7 +59,7 @@ public class Category {
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + "]";
+		return "Category [id=" + id + ", name=" + name + ", companyCategory=" + companyCategory + "]";
 	}
 
 }

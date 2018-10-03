@@ -26,11 +26,7 @@ public class FileDownloadController {
     private static final String EXTERNAL_FILE_PATH="C:/Desktop/Items.xlsx";
      
  
-    @RequestMapping(value={"/","/welcome"}, method = RequestMethod.GET)
-    public String getHomePage(InventoryItem inventoryItem) {
-        return "welcome";
-    }
- 
+
     /*
      * Download a file from 
      *   - inside project, located in resources folder.

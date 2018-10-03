@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     this.logIn = !this.logIn;
   }
 
-  isAdmin(): boolean {
-    return this.authenticationService.isAdmin();
-  }
+  // isAdmin(): boolean {
+  //   return this.authenticationService.isAdmin();
+  // }
 }

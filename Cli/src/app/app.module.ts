@@ -33,12 +33,14 @@ import { ToastModule} from 'ng2-toastr/ng2-toastr';
 import { ToastrCustomOptions } from './toastr/ToastrCustomOptions';
 import { ToastOptions } from 'ng2-toastr/src/toast-options';
 import { ToastsManager } from 'ng2-toastr/src/toast-manager';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomFormsModule } from 'ng2-validation';
-import { MediaStreamComponent } from 'app/media-stream/media-stream.component';
-import { BarcodeValidatorService } from './service/barcode-validator.service';
-import { BarcodeDecoderService } from './service/barcode-decoder.service';
-
+import { ToolbarComponent } from 'app/shared/toolbar/toolbar.component';
+import { SidenavComponent } from 'app/shared/sidenav/sidenav.component';
+import { FabMenuComponent } from 'app/shared/fab-menu/fab-menu.component';
+import { BarcodeModule } from 'app/barcode/barcode.module';
+import { CoreModule } from 'app/modules/core.module';
+import { MediaStreamComponent } from 'app/barcode/media-stream/media-stream.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -53,7 +55,7 @@ const appRoutes: Routes = [
   { path: 'company-page', component: CompanyPageComponent},
   { path: 'company/:id', component: CompanyComponent},
   { path: 'new-company', component: NewCompanyComponent},
-  { path: 'media-stream', component: MediaStreamComponent},
+  { path: 'media-stream-barcode', component: MediaStreamComponent},
    {path: '**', component: PageNotFoundComponent}
 ]
 
@@ -62,6 +64,9 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     MainPageComponent,
+    ToolbarComponent,
+    SidenavComponent,
+    FabMenuComponent,
     PageNotFoundComponent,
     MeniComponentComponent,
     UserPageComponent,
@@ -87,6 +92,11 @@ BrowserModule,
     FormsModule,
     CustomFormsModule,
     BrowserAnimationsModule,
+    FormsModule,
+    RouterModule,
+    FormsModule,
+    BarcodeModule,
+    CoreModule,
     RouterModule.forRoot(
       appRoutes,
       {
@@ -107,8 +117,6 @@ BrowserModule,
   ExcelService,
   CanActivateAuthGuard,
   JwtUtilsService,
-  BarcodeDecoderService,
-  BarcodeValidatorService,
   {
     provide: ToastOptions,
     useClass: ToastrCustomOptions,

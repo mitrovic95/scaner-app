@@ -50,6 +50,10 @@ export class MainPageComponent implements OnInit {
     return this.authenticationService.isAdmin();
   }
 
+  isCompanyAdmin(): boolean {
+    return this.authenticationService.isCompanyAdmin();
+  }
+
   login(): void {
     this.authenticationService.login(this.user.username, this.user.password).subscribe(
       (loggedIn: boolean) => {

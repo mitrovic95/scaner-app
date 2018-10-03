@@ -23,16 +23,14 @@ export class AuthenticationService {
             token: token
           }));
           return true;
-        }
-        else {
+        } else {
           return false;
         }
       })
       .catch((error: any) => {
         if (error.status === 400) {
           return Observable.throw('Ilegal login');
-        }
-        else {
+        } else {
           return Observable.throw(error.json().error || 'Server error');
         }
       });
@@ -41,7 +39,7 @@ export class AuthenticationService {
   getToken(): String {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     var token = currentUser && currentUser.token;
-    return token ? token : "";
+    return token ? token : '';
   }
 
   logout(): void {
@@ -53,25 +51,48 @@ export class AuthenticationService {
     else return false;
   }
 
-  getCurrentUser():User {
+  getCurrentUser(): User {
     if (localStorage.currentUser) {
       return JSON.parse(localStorage.currentUser);
-    }
-    else {
+    } else {
       return undefined;
     }
   }
 
-  isAdmin(){
+  isAdmin() {
     if (this.getCurrentUser()) {
-      return this.getCurrentUser().role.indexOf('SuperAdmin')>=0;      
+      return this.getCurrentUser().role.indexOf('SuperAdmin') >= 0;
     }
 
     return false;
   }
 
-  getUserRoles(){
-    if(this.getCurrentUser()&&this.getCurrentUser().role){
+  // isAdmin() {
+  //   if (this.getCurrentUser()) {
+  //     return this.getCurrentUser().role.indexOf('SuperAdmin') >= 0;
+  //   }
+
+  //   return false;
+  // }
+
+  // isSuperAdmin() {
+  //   if (this. getCurrentUser()) {
+  //     return this.getCurrentUser().role.indexOf('SuperAdmin') >= 0;
+  //   }
+
+  //   return false;
+  // }
+
+  isCompanyAdmin() {
+      if (this. getCurrentUser()) {
+        return this.getCurrentUser().role.indexOf('CompanyAdmin') >= 0;
+      }
+
+      return false;
+    }
+
+  getUserRoles() {
+    if (this.getCurrentUser() && this.getCurrentUser().role) {
       return this.getCurrentUser().role;
     }
   }

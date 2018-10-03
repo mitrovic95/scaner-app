@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
   compareMedia(): void {
     if (window.matchMedia('(max-width: 700px)').matches) {
-      this.router.navigate(['media-stream']);
+      this.router.navigate(['media-stream-barcode']);
     }
   }
 

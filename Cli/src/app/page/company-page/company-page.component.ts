@@ -58,12 +58,16 @@ export class CompanyPageComponent implements OnInit {
   }
 
   delete(company: Company) {
+    console.log('KLIK', company);
     this.companyService.deleteCompany(company)
     .subscribe(
       (data) => {
+        this.loadData();
+       },
+       (error) => {
+        this.loadData();
        }
       )
-      this.loadData();
   }
 
   loadData() {
